@@ -7,7 +7,7 @@ This project is an **Arduino-powered radar system** using an **HC-SR04 ultrasoni
 ✅ **Real-Time Object Detection** – Continuously scans and detects obstacles within range  
 ✅ **Servo-Controlled Scanning** – Rotates the ultrasonic sensor for a **180° field of view**  
 ✅ **Distance Measurement** – Uses **HC-SR04** to calculate object distances accurately  
-✅ **Graphical Visualization** – Displays radar-like output on an ** or PC GUI**  
+✅ **Graphical Visualization** – Displays radar-like output on an **  PC GUI**  
 ✅ **Customizable Range & Sensitivity** – Adjustable detection parameters  
 
 ## 🛠 Hardware Requirements  
@@ -33,6 +33,10 @@ This project is an **Arduino-powered radar system** using an **HC-SR04 ultrasoni
 
 ## 🚀 Installation & Usage  
 1️⃣ **Clone the repository**  
+
+
+![WhatsApp Image 2025-04-07 at 20 23 41_2b3bd3fe](https://github.com/user-attachments/assets/83a6b7e9-897e-470b-a28b-8c0b48ed97fd)
+
 
 
 ![WhatsApp Image 2025-06-07 at 18 42 36_9e252c2b](https://github.com/user-attachments/assets/705adf60-8a7e-4de5-87a3-523e9d30b4df)
