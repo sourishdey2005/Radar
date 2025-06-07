@@ -1,0 +1,26 @@
+Pin Diagram:
+
+Component	Arduino Pin
+HC-SR04 Trig	9
+HC-SR04 Echo	10
+Servo MG90S	6
+LED	3
+Power Connections:
+
+HC-SR04 VCC → 5V
+
+HC-SR04 GND → GND
+
+Servo VCC → 5V
+
+Servo GND → GND
+
+LED Anode (+) → Digital Pin 3 (with 220Ω resistor)
+
+LED Cathode (-) → GND
+
+MG90S Servo 3-Pin Color Code & Connections
+Wire Color	Function	Arduino Connection
+Brown	GND (Ground)	GND
+Red	VCC (Power +5V)	5V
+Orange	Signal (PWM)	Digital Pin 6
