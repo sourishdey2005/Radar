@@ -1,0 +1,87 @@
+import processing.serial.*;
+
+Serial myPort;
+float angle, distance;
+PVector objectPos;
+PVector[] trail = new PVector[120]; // Longer trail effect for smooth radar
+
+void setup() {
+    size(600, 600);
+    myPort = new Serial(this, "COM4", 9600); // Change COM3 to your port
+    myPort.bufferUntil('\n');
+    smooth();
+}
+
+void draw() {
+    background(0);
+    translate(width / 2, height / 2);
+    drawRadar();
+
+    if (objectPos != null) {
+        // Add new position to trail effect
+        for (int i = trail.length - 1; i > 0; i--) {
+            trail[i] = trail[i - 1];
+        }
+        trail[0] = objectPos;
+
+        // Draw fading trail effect
+        for (int i = 0; i < trail.length; i++) {
+            if (trail[i] != null) {
+                fill(255, 0, 0, map(i, 0, trail.length, 255, 50)); // Fading effect
+                noStroke();
+                ellipse(trail[i].x, trail[i].y, 6, 6);
+            }
+        }
+
+        // Draw detected object in bright red
+        fill(255, 0, 0);
+        noStroke();
+        ellipse(objectPos.x, objectPos.y, 12, 12);
+    }
+}
+
+void drawRadar() {
+    stroke(0, 255, 0);
+    strokeWeight(2);
+    noFill();
+
+    // Draw full radar circles
+    for (int i = 1; i <= 5; i++) {
+        ellipse(0, 0, i * 100, i * 100);
+    }
+
+    // Draw radar grid lines
+    for (int i = 0; i < 360; i += 30) {
+        float x = 250 * cos(radians(i));
+        float y = 250 * sin(radians(i));
+        line(0, 0, x, y);
+    }
+
+    // Sweep line
+    stroke(0, 255, 0);
+    strokeWeight(3);
+    line(0, 0, 250 * cos(radians(angle)), 250 * sin(radians(angle)));
+
+    // Display text
+    fill(0, 255, 0);
+    textSize(16);
+    textAlign(CENTER);
+    text("360° Radar System", 0, -280);
+}
+
+void serialEvent(Serial myPort) {
+    String data = myPort.readStringUntil('\n');
+    if (data != null) {
+        data = trim(data);
+        String[] values = split(data, ',');
+        if (values.length == 2) {
+            angle = float(values[0]);
+            distance = float(values[1]);
+
+            float r = map(distance, 0, 50, 0, 250);
+            float x = r * cos(radians(angle));
+            float y = r * sin(radians(angle));
+            objectPos = new PVector(x, y);
+        }
+    }
+}
