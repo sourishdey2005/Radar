@@ -33,3 +33,7 @@ This project is an **Arduino-powered radar system** using an **HC-SR04 ultrasoni
 
 ## 🚀 Installation & Usage  
 1️⃣ **Clone the repository**  
+
+
+![WhatsApp Image 2025-06-07 at 18 42 36_9e252c2b](https://github.com/user-attachments/assets/705adf60-8a7e-4de5-87a3-523e9d30b4df)
+
