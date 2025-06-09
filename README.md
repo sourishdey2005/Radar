@@ -23,8 +23,7 @@ This project is an **Arduino-powered radar system** using an **HC-SR04 ultrasoni
 | HC-SR04 Trigger | D9 |  
 | HC-SR04 Echo | D10 |  
 | Servo Motor | D6 |  
-| OLED Display (SDA) | A4 |  
-| OLED Display (SCL) | A5 |  
+
 
 ## 💻 Software & Libraries  
 - **Arduino IDE** (for coding & uploading)  
